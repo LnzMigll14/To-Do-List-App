@@ -1,5 +1,9 @@
+/* Import Google Font - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+/* =======================
+   GLOBAL STYLES
+======================= */
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +15,9 @@ html {
   scroll-behavior: smooth;
 }
 
+/* =======================
+   CONTAINER
+======================= */
 .container {
   width: 100%;
   min-height: 100vh;
@@ -19,6 +26,9 @@ html {
   color: white;
 }
 
+/* =======================
+   TO-DO APP BOX
+======================= */
 .to-do-app {
   width: 100%;
   max-width: 540px;
@@ -26,9 +36,12 @@ html {
   margin: 100px auto 20px;
   padding: 40px 30px 70px;
   border: 1px solid #ccc;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 
+/* =======================
+   HEADING
+======================= */
 h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -36,6 +49,9 @@ h1 {
   text-align: center;
 }
 
+/* =======================
+   INPUT ROW (Input + Button)
+======================= */
 .row {
   display: flex;
   justify-content: space-between;
@@ -53,6 +69,7 @@ h1 {
   color: #ccc;
   font-weight: bold;
   padding: 10px;
+  font-size: medium;
 }
 
 .row button {
@@ -61,29 +78,73 @@ h1 {
   outline: none;
   cursor: pointer;
   font-weight: bold;
+  font-size: medium;
 }
 
-ul li {
+.row button:hover {
+  background: transparent;
+  color: #ccc;
+  transition: 0.3s;
+  border: 1px solid #ccc;
+}
+
+/* =======================
+   TASK LIST ITEMS
+======================= */
+ul li{
   list-style: none;
   font-size: 17px;
-  padding: 10px 8px 12px 50px;
+  padding: 12px 8px 12px 50px;
   user-select: none;
   cursor: pointer;
   position: relative;
 }
 
-ul li::before {
-  content: none;
+ul li::before{
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(Assets/unchecked.png);
+  background-size: cover;
+  background-position: center;
+  top: 12px;
+  left: 8px;
 }
 
-ul li i {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+ul li.checked{
   color: #ccc;
-  font-size: 35px;
+  text-decoration: line-through;
 }
+
+ul li.checked::before{
+  background-image: url(Assets/checked.png);
+  background-size: cover;
+  background-position: center;
+}
+
+ul li span{
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 32px;
+  color: #ccc;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+ul li span:hover{
+  background: #ccc;
+  color: black;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
 
 /* =======================
    FOOTER SECTION
@@ -96,6 +157,7 @@ ul li i {
   font-size: 15px;
 }
 
+/* Footer Navigation Links (if used) */
 .footer-links {
   display: flex;
   justify-content: center;
@@ -110,6 +172,7 @@ ul li i {
   text-transform: uppercase;
 }
 
+/* Footer Social Icons */
 .footer-social {
   margin-bottom: 30px;
 }
@@ -132,6 +195,7 @@ ul li i {
   z-index: 1;
 }
 
+/* Hover Animation Background */
 .footer-social a::before {
   content: "";
   position: absolute;
@@ -152,17 +216,20 @@ ul li i {
   color: black;
 }
 
+/* Footer Divider Line */
 .footer-hr {
   margin: 20px 0;
   border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Footer Text Content */
 .footer-text {
   margin: 30px 0;
   font-size: 15px;
 }
 
+/* Footer Copyright */
 .footer-copyright {
   font-size: 15px;
   color: white;
