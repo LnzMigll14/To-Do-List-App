@@ -1,4 +1,3 @@
-// Get references to the input field and the task list container
 const input = document.getElementById("input");
 const listContainer = document.getElementById("list-container");
 
@@ -24,6 +23,8 @@ function addTask() {
 
     // Clear the input field after adding the task
     input.value = "";
+    saveData(); // Save the updated task list to localStorage
+    
 }
 
 // Event listener for clicks inside the task list
@@ -37,3 +38,14 @@ listContainer.addEventListener("click", function (e) {
         e.target.parentElement.remove();
     }
 }, false);
+
+
+function saveData() {
+    localStorage.setItem("data", listContainer.innerHTML);
+}
+
+function loadData() {
+    listContainer.innerHTML = localStorage.getItem("data"); // Load data from localStorage or set to empty string if not found
+    }
+
+loadData(); // Load data when the page is loaded 
